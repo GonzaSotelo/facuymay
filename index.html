@@ -35,16 +35,28 @@
     </select>
 
     <div id="extraFields">
-      <input type="number" id="people" placeholder="Cantidad de personas" min="1">
+      <input
+  type="number"
+  id="people"
+  placeholder="Cantidad de personas"
+  min="1"
+  required
+/>
 
-      <label class="label">Restricciones alimentarias</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" value="Vegetariano"> Vegetariano</label>
-        <label><input type="checkbox" value="Celíaco"> Celíaco</label>
-        <label><input type="checkbox" value="Intolerante a la lactosa"> Intolerante a la lactosa</label>
-      </div>
+<div id="peopleContainer"></div>
 
-      <input type="text" id="song" placeholder="Tema que no puede faltar 🎶">
+      
+
+<div class="person">
+  <h4>Tema que no puede faltar 🎶</h4>
+  <input
+    type="text"
+    id="song"
+    placeholder="Ej: Tan enamorados, Persiana Americana..."
+  />
+</div>
+
+
     </div>
 
     <button type="submit">Enviar por WhatsApp</button>
