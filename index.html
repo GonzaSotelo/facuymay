@@ -1,35 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Nuestra Boda</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <audio id="bg-music" loop>
-    <source src="audio/romantic.mp3" type="audio/mpeg">
-  </audio>
 
-  <section id="cover" class="cover">
-    <div class="overlay"></div>
-    <div class="cover-content">
-      <h1>Acompáñanos en esta nueva etapa de nuestras vidas</h1>
-      <button id="startBtn">Iniciar</button>
+<audio id="bg-music" loop>
+  <source src="audio/romantic.mp3" type="audio/mpeg">
+</audio>
+
+<section id="cover" class="cover">
+  <div class="overlay"></div>
+  <div class="cover-content">
+    <h1>Acompáñanos en esta nueva etapa de nuestras vidas</h1>
+    <button id="startBtn">Iniciar</button>
+  </div>
+</section>
+
+<section id="main" class="main hidden">
+  <h2>¡Nos casamos! 💍</h2>
+  <p>Queremos compartir este momento tan especial con vos</p>
+
+  <form id="weddingForm" class="form">
+    <input type="text" id="fullname" placeholder="Nombre y apellido" required>
+
+    <select id="attendance" required>
+      <option value="">¿Vas a asistir?</option>
+      <option value="Sí">Sí</option>
+      <option value="No">No</option>
+    </select>
+
+    <div id="extraFields">
+      <input type="number" id="people" placeholder="Cantidad de personas" min="1">
+
+      <label class="label">Restricciones alimentarias</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" value="Vegetariano"> Vegetariano</label>
+        <label><input type="checkbox" value="Celíaco"> Celíaco</label>
+        <label><input type="checkbox" value="Intolerante a la lactosa"> Intolerante a la lactosa</label>
+      </div>
+
+      <input type="text" id="song" placeholder="Tema que no puede faltar 🎶">
     </div>
-  </section>
 
-  <section id="main" class="main hidden">
-    <h2>¡Nos casamos! 💍</h2>
-    <p class="text">Queremos compartir este momento tan especial con vos.</p>
-    <a class="whatsapp-btn"
-       href="https://wa.me/5491124081298?text=Hola%20confirmo%20mi%20asistencia%20al%20casamiento%20💍"
-       target="_blank">
-      Confirmar asistencia por WhatsApp
-    </a>
-  </section>
+    <button type="submit">Enviar por WhatsApp</button>
+  </form>
+</section>
 
-  <script src="script.js"></script>
+<div id="thanks" class="thanks hidden">
+  <div class="thanks-box">
+    <h3>¡Gracias por responder! 💖</h3>
+    <p>Te redirigimos a WhatsApp</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
