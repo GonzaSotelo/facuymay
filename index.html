@@ -63,13 +63,13 @@
   <a href="https://www.google.com/maps?q=Av.+Monseñor+Bufano+1546" target="_blank">
     <button>Cómo llegar</button>
   </a>
-    <section class="card dresscode">
-  <h2>Dress Code</h2>
-  <p>Elegante / Gala</p>
-  <span>✨</span>
-</section>
-
   </section>
+
+  <section class="card dresscode">
+  <div class="dresscode-icon">🤵‍♂️👗</div>
+  <h2>Dress Code</h2>
+  <p class="dresscode-text">Elegante · Gala</p>
+</section>
 
   
   <!-- GALERÍA -->
@@ -112,6 +112,25 @@
     <p><strong>CBU:</strong> 0000003100001234567890</p>
   </div>
 </div>
+
+<section class="card">
+  <h2>Confirmar Asistencia</h2>
+  <p>Por favor completá los datos</p>
+
+  <label>Cantidad de personas</label>
+  <select id="cantidad" onchange="generarPersonas()">
+    <option value="">Seleccionar</option>
+    <option value="1">1 persona</option>
+    <option value="2">2 personas</option>
+    <option value="3">3 personas</option>
+    <option value="4">4 personas</option>
+    <option value="5">5 personas</option>
+  </select>
+
+  <div id="personas"></div>
+
+  <button onclick="enviarConfirmacion()">Confirmar asistencia</button>
+</section>
 
 
 <script src="script.js"></script>

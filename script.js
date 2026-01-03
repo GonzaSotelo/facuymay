@@ -6,20 +6,34 @@ video.onended = () => {
 };
 
 const musica = document.getElementById("musica");
+const musicBtn = document.getElementById("musicBtn");
+
 let musicaIniciada = false;
 
-// Primer interacción del usuario
+// Inicia música en la primera interacción
 function iniciarMusica() {
   if (!musicaIniciada) {
     musica.play().then(() => {
       musicaIniciada = true;
+      musicBtn.textContent = "🔊";
     });
   }
 }
 
-// Detecta cualquier interacción
-document.addEventListener("click", iniciarMusica);
-document.addEventListener("touchstart", iniciarMusica);
+// Detecta cualquier interacción inicial
+document.addEventListener("click", iniciarMusica, { once: true });
+document.addEventListener("touchstart", iniciarMusica, { once: true });
+
+// Botón play / pause
+function toggleMusic() {
+  if (musica.paused) {
+    musica.play();
+    musicBtn.textContent = "🔊";
+  } else {
+    musica.pause();
+    musicBtn.textContent = "🔇";
+  }
+}
 
 
 // CUENTA REGRESIVA
@@ -44,4 +58,63 @@ function abrirModal() {
 
 function cerrarModal() {
   document.getElementById("modal").classList.remove("show");
+}
+
+function generarPersonas() {
+  const cantidad = document.getElementById("cantidad").value;
+  const contenedor = document.getElementById("personas");
+
+  contenedor.innerHTML = "";
+
+  for (let i = 1; i <= cantidad; i++) {
+    contenedor.innerHTML += `
+      <div class="persona">
+        <h3>Persona ${i}</h3>
+
+        <label>Nombre y apellido</label>
+        <input type="text" placeholder="Ej: Juan Pérez" required>
+
+        <label>Menú</label>
+        <select>
+          <option value="Tradicional">Tradicional</option>
+          <option value="Celíaco">Celíaco</option>
+          <option value="Intolerante a la lactosa">Intolerante a la lactosa</option>
+          <option value="Vegano">Vegano</option>
+          <option value="Menú infantil">Menú infantil</option>
+        </select>
+      </div>
+    `;
+  }
+}
+
+function enviarConfirmacion() {
+  const cantidad = document.getElementById("cantidad").value;
+  const personas = document.querySelectorAll(".persona");
+
+  if (!cantidad) {
+    alert("Por favor seleccioná la cantidad de personas");
+    return;
+  }
+
+  let mensaje = `💍 Confirmación de asistencia 💍\n\n`;
+  mensaje += `Cantidad de personas: ${cantidad}\n\n`;
+
+  personas.forEach((persona, index) => {
+    const nombre = persona.querySelector("input").value;
+    const menu = persona.querySelector("select").value;
+
+    if (!nombre) {
+      alert("Por favor completá todos los nombres");
+      throw new Error();
+    }
+
+    mensaje += `Persona ${index + 1}:\n`;
+    mensaje += `👤 Nombre: ${nombre}\n`;
+    mensaje += `🍽 Menú: ${menu}\n\n`;
+  });
+
+  const telefono = "5491168916883"; // 👈 TU NÚMERO
+  const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url, "_blank");
 }
