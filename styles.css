@@ -23,18 +23,31 @@ body {
 
 /* HERO */
 .hero {
-  padding: 40px 20px;
+  min-height: 100vh;
+  background: url("assets/fondo-final.jpg") center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .logo {
-  width: 220px;
+  width: 300px; /* más grande */
   margin-bottom: 20px;
 }
 
+.falta {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
 #countdown {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
+
 
 /* SECCIONES */
 .card {
@@ -73,13 +86,37 @@ button {
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,.5);
-  display: none; /* 🔑 oculto por defecto */
+  background: rgba(0,0,0,0.5);
+  display: none;
   align-items: center;
   justify-content: center;
   z-index: 999;
 }
 
 .modal.show {
-  display: flex; /* 🔑 solo se muestra cuando se activa */
+  display: flex;
+}
+
+.modal-content {
+  background: transparent; /* 🔑 sin fondo */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.modal-content h3,
+.modal-content p {
+  color: #fff;
+}
+
+.close {
+  font-size: 30px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 15px;
+}
+.modal-content {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
 }
