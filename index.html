@@ -100,6 +100,30 @@
       <button>Ver en Instagram</button>
     </a>
   </section>
+<section class="card">
+  <h2>Confirmar Asistencia</h2>
+
+  <label>Cantidad de personas</label>
+  <input
+    type="number"
+    id="cantidad"
+    min="1"
+    max="10"
+    placeholder="Ej: 2"
+  />
+
+  <button type="button" onclick="generarPersonas()">Continuar</button>
+
+  <div id="personas"></div>
+
+  <button type="button" onclick="enviarConfirmacion()">
+    Confirmar asistencia
+  </button>
+</section>
+
+
+<small>Ingresá el número y completá los datos de cada persona</small>
+
 
 </main>
 
@@ -113,24 +137,7 @@
   </div>
 </div>
 
-<section class="card">
-  <h2>Confirmar Asistencia</h2>
-  <p>Por favor completá los datos</p>
 
-  <label>Cantidad de personas</label>
-  <select id="cantidad" onchange="generarPersonas()">
-    <option value="">Seleccionar</option>
-    <option value="1">1 persona</option>
-    <option value="2">2 personas</option>
-    <option value="3">3 personas</option>
-    <option value="4">4 personas</option>
-    <option value="5">5 personas</option>
-  </select>
-
-  <div id="personas"></div>
-
-  <button onclick="enviarConfirmacion()">Confirmar asistencia</button>
-</section>
 
 
 <script src="script.js"></script>

@@ -61,10 +61,12 @@ function cerrarModal() {
 }
 
 function generarPersonas() {
-  const cantidad = document.getElementById("cantidad").value;
+  const cantidad = parseInt(document.getElementById("cantidad").value);
   const contenedor = document.getElementById("personas");
 
   contenedor.innerHTML = "";
+
+  if (!cantidad || cantidad < 1) return;
 
   for (let i = 1; i <= cantidad; i++) {
     contenedor.innerHTML += `
@@ -72,7 +74,7 @@ function generarPersonas() {
         <h3>Persona ${i}</h3>
 
         <label>Nombre y apellido</label>
-        <input type="text" placeholder="Ej: Juan Pérez" required>
+        <input type="text" placeholder="Ej: Juan Pérez">
 
         <label>Menú</label>
         <select>
@@ -86,6 +88,8 @@ function generarPersonas() {
     `;
   }
 }
+
+
 
 function enviarConfirmacion() {
   const cantidad = document.getElementById("cantidad").value;
