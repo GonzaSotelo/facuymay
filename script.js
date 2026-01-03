@@ -6,7 +6,7 @@ video.onended = () => {
 };
 
 // CUENTA REGRESIVA
-const evento = new Date("2026-05-15T17:00:00").getTime();
+const evento = new Date("2026-03-8T12:15:00").getTime();
 
 setInterval(() => {
   const ahora = new Date().getTime();
