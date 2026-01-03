@@ -6,17 +6,21 @@ video.onended = () => {
 };
 
 const musica = document.getElementById("musica");
-let sonando = true;
+let musicaIniciada = false;
 
-function toggleMusic() {
-  if (!sonando) {
-    musica.play();
-    sonando = true;
-  } else {
-    musica.pause();
-    sonando = false;
+// Primer interacción del usuario
+function iniciarMusica() {
+  if (!musicaIniciada) {
+    musica.play().then(() => {
+      musicaIniciada = true;
+    });
   }
 }
+
+// Detecta cualquier interacción
+document.addEventListener("click", iniciarMusica);
+document.addEventListener("touchstart", iniciarMusica);
+
 
 // CUENTA REGRESIVA
 const evento = new Date("2026-03-08T12:15:00").getTime();
