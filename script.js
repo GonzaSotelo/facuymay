@@ -5,6 +5,19 @@ video.onended = () => {
   document.getElementById("contenido").classList.remove("hidden");
 };
 
+const musica = document.getElementById("musica");
+let sonando = false;
+
+function toggleMusic() {
+  if (!sonando) {
+    musica.play();
+    sonando = true;
+  } else {
+    musica.pause();
+    sonando = false;
+  }
+}
+
 // CUENTA REGRESIVA
 const evento = new Date("2026-03-08T12:15:00").getTime();
 

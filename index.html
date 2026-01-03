@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<audio id="musica" loop>
+  <source src="assets/musica.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn" onclick="toggleMusic()">🎵</button>
 
 <!-- VIDEO INTRO -->
 <section id="intro">
@@ -32,6 +37,15 @@
     <p><strong>Día:</strong> Domingo 8 de Marzo- 12:15hs</p>
     <p><strong>Lugar:</strong> Parroquia Nuestra Señora Del Carmen</p>
     <p><strong>Dirección:</strong> Álvarez Jonte 77 - Ramos Mejia</p>
+      <iframe
+    class="mapa"
+    src="https://www.google.com/maps?q=Álvarez+Jonte+77+Ramos+Mejía&output=embed"
+    loading="lazy"
+  ></iframe>
+
+  <a href="https://www.google.com/maps?q=Álvarez+Jonte+77+Ramos+Mejía" target="_blank">
+    <button>Cómo llegar</button>
+  </a>
   </section>
 
   <!-- FIESTA -->
@@ -40,8 +54,24 @@
     <p><strong>Día:</strong> Domingo 8 de Marzo- 14:00hs</p>
     <p><strong>Lugar:</strong> Jano´s San Justo</p>
     <p><strong>Dirección:</strong> Av. Monseñor Bufano 1546</p>
+      <iframe
+    class="mapa"
+    src="https://www.google.com/maps?q=Av.+Monseñor+Bufano+1546&output=embed"
+    loading="lazy"
+  ></iframe>
+
+  <a href="https://www.google.com/maps?q=Av.+Monseñor+Bufano+1546" target="_blank">
+    <button>Cómo llegar</button>
+  </a>
+    <section class="card dresscode">
+  <h2>Dress Code</h2>
+  <p>Elegante / Gala</p>
+  <span>✨</span>
+</section>
+
   </section>
 
+  
   <!-- GALERÍA -->
   <section class="galeria">
     <h2>Retratos de Nuestro Amor</h2>
@@ -49,6 +79,8 @@
       <img src="assets/foto1.jpg">
       <img src="assets/foto2.jpg">
       <img src="assets/foto3.jpg">
+        <img src="assets/foto4.jpg">
+  <img src="assets/foto5.jpg">
     </div>
   </section>
 
