@@ -6,7 +6,7 @@ video.onended = () => {
 };
 
 const musica = document.getElementById("musica");
-let sonando = false;
+let sonando = true;
 
 function toggleMusic() {
   if (!sonando) {
