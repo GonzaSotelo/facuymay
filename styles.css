@@ -1,121 +1,85 @@
-:root{
-  --gold:#b6a87a;
-  --light:#f5f2ed;
-}
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Montserrat',sans-serif;background:var(--light);}
-
-.cover{
-  height:100vh;
-  background:url("img/portada.jpeg") center/cover no-repeat;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-}
-.cover::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  backdrop-filter:blur(4px);
-}
-.overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.35);
-}
-.cover-content{
-  position:relative;
-  text-align:center;
-  color:white;
-  padding:20px;
-}
-.cover-content h1{
-  font-family:'Playfair Display',serif;
-  margin-bottom:30px;
-}
-.cover-content button{
-  background:var(--gold);
-  border:none;
-  padding:15px 40px;
-  border-radius:30px;
-  color:white;
-  font-size:1.1rem;
+* {
+  box-sizing: border-box;
+  font-family: 'Georgia', serif;
 }
 
-.main{
-  min-height:100vh;
-  padding:60px 20px;
-  text-align:center;
-}
-
-.form{
-  max-width:400px;
-  margin:30px auto;
-  display:flex;
-  flex-direction:column;
-  gap:15px;
-}
-
-.form input,.form select{
-  padding:12px;
-  border-radius:8px;
-  border:1px solid #ccc;
-}
-
-.label{text-align:left;font-weight:600;}
-.checkbox-group{display:flex;flex-direction:column;text-align:left;gap:8px;font-size:.95rem}
-
-.form button{
-  margin-top:15px;
-  background:#25d366;
-  color:white;
-  border:none;
-  padding:15px;
-  border-radius:30px;
-  font-size:1.1rem;
+body {
+  margin: 0;
+  background: #fff6d7;
+  color: #5a2a1b;
+  text-align: center;
 }
 
 .hidden {
-  display: none !important;
+  display: none;
 }
 
-
-.thanks{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.6);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-.thanks-box{
-  background:white;
-  padding:30px;
-  border-radius:20px;
-  text-align:center;
-}
-
-.person {
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 12px;
-  margin-top: 10px;
-  text-align: left;
-}
-
-.person h4 {
-  margin-bottom: 8px;
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-
-.person input,
-.person select {
+/* VIDEO */
+#intro video {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 8px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 0.95rem;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* HERO */
+.hero {
+  padding: 40px 20px;
+}
+
+.logo {
+  width: 220px;
+  margin-bottom: 20px;
+}
+
+#countdown {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* SECCIONES */
+.card {
+  background: #fff;
+  margin: 20px;
+  padding: 25px;
+  border-radius: 20px;
+}
+
+/* BOTONES */
+button {
+  background: #7a1e0e;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+}
+
+/* GALERÍA */
+.carousel {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto;
+  padding: 20px;
+}
+
+.carousel img {
+  width: 220px;
+  border: 8px solid white;
+  transform: rotate(-2deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,.2);
+}
+
+/* MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.5);
+  display: none; /* 🔑 oculto por defecto */
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal.show {
+  display: flex; /* 🔑 solo se muestra cuando se activa */
 }

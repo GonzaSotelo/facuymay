@@ -1,74 +1,84 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Nuestra Boda</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>May & Facu</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<audio id="bg-music" loop>
-  <source src="audio/romantic.mp3" type="audio/mpeg">
-</audio>
-
-<section id="cover" class="cover">
-  <div class="overlay"></div>
-  <div class="cover-content">
-    <h1>Acompáñanos en esta nueva etapa de nuestras vidas</h1>
-    <button id="startBtn">Iniciar</button>
-  </div>
+<!-- VIDEO INTRO -->
+<section id="intro">
+  <video autoplay muted playsinline id="introVideo">
+    <source src="assets/video.mp4" type="video/mp4">
+  </video>
 </section>
 
-<section id="main" class="main hidden">
-  <h2>¡Nos casamos! 💍</h2>
-  <p>Queremos compartir este momento tan especial con vos</p>
+<!-- CONTENIDO -->
+<main id="contenido" class="hidden">
 
-  <form id="weddingForm" class="form">
-    <input type="text" id="fullname" placeholder="Nombre y apellido" required>
+  <!-- HERO -->
+  <section class="hero">
+    <img src="assets/logo.png" alt="May y Facu" class="logo">
+    <div id="countdown"></div>
+  </section>
 
-    <select id="attendance" required>
-      <option value="">¿Vas a asistir?</option>
-      <option value="Sí">Sí</option>
-      <option value="No">No</option>
-    </select>
+  <!-- CEREMONIA -->
+  <section class="card">
+    <h2>Ceremonia</h2>
+    <p><strong>Día:</strong> Sábado 15 de Mayo - 17hs</p>
+    <p><strong>Lugar:</strong> Parroquia Nuestra Señora de Luján</p>
+    <p><strong>Dirección:</strong> Av. Pergamino 203 - Bs As</p>
+  </section>
 
-    <div id="extraFields">
-      <input
-  type="number"
-  id="people"
-  placeholder="Cantidad de personas"
-  min="1"
-  required
-/>
+  <!-- FIESTA -->
+  <section class="card">
+    <h2>Fiesta</h2>
+    <p><strong>Día:</strong> Sábado 15 de Mayo - 20hs</p>
+    <p><strong>Lugar:</strong> Salón Abril</p>
+    <p><strong>Dirección:</strong> Av. Los Reartes 12 - Bs As</p>
+  </section>
 
-<div id="peopleContainer"></div>
-
-      
-
-<div class="person">
-  <h4>Tema que no puede faltar 🎶</h4>
-  <input
-    type="text"
-    id="song"
-    placeholder="Ej: Tan enamorados, Persiana Americana..."
-  />
-</div>
-
-
+  <!-- GALERÍA -->
+  <section class="galeria">
+    <h2>Retratos de Nuestro Amor</h2>
+    <div class="carousel">
+      <img src="assets/foto1.jpg">
+      <img src="assets/foto2.jpg">
+      <img src="assets/foto3.jpg">
     </div>
+  </section>
 
-    <button type="submit">Enviar por WhatsApp</button>
-  </form>
-</section>
+  <!-- REGALOS -->
+  <section class="card">
+    <h2>Regalos</h2>
+    <p>Si deseás regalarnos algo más que tu presencia...</p>
+    <button onclick="abrirModal()">Ver más</button>
+  </section>
 
-<div id="thanks" class="thanks hidden">
-  <div class="thanks-box">
-    <h3>¡Gracias por responder! 💖</h3>
-    <p>Te redirigimos a WhatsApp</p>
+  <!-- INSTAGRAM -->
+  <section class="card">
+    <h2>Compartimos este día junto a vos</h2>
+    <p>Usá el hashtag</p>
+    <h3>#mayyfacu</h3>
+    <a href="https://instagram.com" target="_blank">
+      <button>Ver en Instagram</button>
+    </a>
+  </section>
+
+</main>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span onclick="cerrarModal()" class="close">×</span>
+    <h3>Datos para regalo</h3>
+    <p><strong>Alias:</strong> may.facu.boda</p>
+    <p><strong>CBU:</strong> 0000003100001234567890</p>
   </div>
 </div>
+
 
 <script src="script.js"></script>
 </body>
