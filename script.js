@@ -1,72 +1,91 @@
-// VIDEO INTRO
+/* =========================
+   VIDEO INTRO
+========================= */
 const video = document.getElementById("introVideo");
+const intro = document.getElementById("intro");
+const contenido = document.getElementById("contenido");
+
 video.onended = () => {
-  document.getElementById("intro").style.display = "none";
-  document.getElementById("contenido").classList.remove("hidden");
+  intro.style.display = "none";
+  contenido.classList.remove("hidden");
 };
 
+/* =========================
+   MÚSICA DE FONDO
+========================= */
 const musica = document.getElementById("musica");
 const musicBtn = document.getElementById("musicBtn");
 
 let musicaIniciada = false;
 
-// Inicia música en la primera interacción
 function iniciarMusica() {
-  if (!musicaIniciada) {
-    musica.play().then(() => {
-      musicaIniciada = true;
-      musicBtn.textContent = "🔊";
-    });
-  }
+  if (musicaIniciada) return;
+
+  musica.play().then(() => {
+    musicaIniciada = true;
+    musicBtn.textContent = "🔊";
+    musicBtn.classList.add("playing");
+  });
 }
 
-// Detecta cualquier interacción inicial
-document.addEventListener("click", iniciarMusica, { once: true });
-document.addEventListener("touchstart", iniciarMusica, { once: true });
-
-// Botón play / pause
 function toggleMusic() {
   if (musica.paused) {
     musica.play();
     musicBtn.textContent = "🔊";
+    musicBtn.classList.add("playing");
   } else {
     musica.pause();
     musicBtn.textContent = "🔇";
+    musicBtn.classList.remove("playing");
   }
 }
 
 
-// CUENTA REGRESIVA
+/* =========================
+   CUENTA REGRESIVA
+========================= */
 const evento = new Date("2026-03-08T12:15:00").getTime();
 
 setInterval(() => {
   const ahora = new Date().getTime();
-  const diff = evento - ahora;
+  const diferencia = evento - ahora;
 
-  const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-  const min = Math.floor((diff / (1000 * 60)) % 60);
+  const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+  const horas = Math.floor((diferencia / (1000 * 60 * 60)) % 24);
+  const minutos = Math.floor((diferencia / (1000 * 60)) % 60);
 
-  document.getElementById("countdown").innerHTML =
-    `${dias} días ${horas} hs ${min} min`;
+  document.getElementById("countdown").textContent =
+    `${dias} días ${horas} hs ${minutos} min`;
 }, 1000);
 
-// MODAL
+/* =========================
+   MODAL REGALOS
+========================= */
+const modal = document.getElementById("modal");
+
 function abrirModal() {
-  document.getElementById("modal").classList.add("show");
+  modal.classList.add("show");
 }
 
 function cerrarModal() {
-  document.getElementById("modal").classList.remove("show");
+  modal.classList.remove("show");
 }
 
+/* =========================
+   CONFIRMACIÓN ASISTENCIA
+========================= */
 function generarPersonas() {
   const cantidad = parseInt(document.getElementById("cantidad").value);
   const contenedor = document.getElementById("personas");
+  const btnConfirmar = document.getElementById("btnConfirmar");
 
   contenedor.innerHTML = "";
+  btnConfirmar.style.display = "none"; // 🔒 se oculta siempre primero
 
-  if (!cantidad || cantidad < 1) return;
+  if (!cantidad || cantidad < 1) {
+    alert("Ingresá una cantidad válida");
+    return;
+  }
 
   for (let i = 1; i <= cantidad; i++) {
     contenedor.innerHTML += `
@@ -87,8 +106,10 @@ function generarPersonas() {
       </div>
     `;
   }
-}
 
+  // ✅ si llegó hasta acá, mostramos el botón
+  btnConfirmar.style.display = "block";
+}
 
 
 function enviarConfirmacion() {
@@ -103,21 +124,21 @@ function enviarConfirmacion() {
   let mensaje = `💍 Confirmación de asistencia 💍\n\n`;
   mensaje += `Cantidad de personas: ${cantidad}\n\n`;
 
-  personas.forEach((persona, index) => {
-    const nombre = persona.querySelector("input").value;
-    const menu = persona.querySelector("select").value;
+  for (let i = 0; i < personas.length; i++) {
+    const nombre = personas[i].querySelector("input").value;
+    const menu = personas[i].querySelector("select").value;
 
     if (!nombre) {
       alert("Por favor completá todos los nombres");
-      throw new Error();
+      return;
     }
 
-    mensaje += `Persona ${index + 1}:\n`;
+    mensaje += `Persona ${i + 1}:\n`;
     mensaje += `👤 Nombre: ${nombre}\n`;
     mensaje += `🍽 Menú: ${menu}\n\n`;
-  });
+  }
 
-  const telefono = "5491168916883"; // 👈 TU NÚMERO
+  const telefono = "5491168916883"; // tu número
   const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
 
   window.open(url, "_blank");
