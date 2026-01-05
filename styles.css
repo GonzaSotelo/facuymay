@@ -22,7 +22,13 @@ body {
   justify-content: center;
   cursor: pointer;
   z-index: 10;
+  transition: opacity 0.8s ease;
 }
+body.abierto .pantalla {
+  opacity: 0;
+  pointer-events: none;
+}
+
 
 /* TEXTO */
 .texto {
@@ -106,4 +112,76 @@ body.abierto .contenido {
 /* DESAPARECE LA PANTALLA */
 body.abierto .pantalla {
   pointer-events: none;
+}
+
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* LOGO */
+.logo {
+  width: 220px;
+  max-width: 80%;
+  margin-bottom: 24px;
+}
+
+/* TITULO */
+.titulo {
+  font-size: 32px;
+  letter-spacing: 2px;
+  margin-bottom: 30px;
+  font-weight: 400;
+}
+
+/* CONTADOR */
+.contador {
+  display: flex;
+  gap: 14px;
+}
+
+.tiempo {
+  background: #f6f3ef;
+  padding: 12px 10px;
+  border-radius: 10px;
+  min-width: 65px;
+}
+
+.tiempo span {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.tiempo small {
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #555;
+}
+
+/* TABLET / DESKTOP */
+@media (min-width: 768px) {
+  .titulo {
+    font-size: 40px;
+  }
+
+  .contador {
+    gap: 22px;
+  }
+
+  .tiempo {
+    min-width: 80px;
+    padding: 16px 14px;
+  }
+
+  .tiempo span {
+    font-size: 26px;
+  }
 }
