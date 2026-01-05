@@ -184,7 +184,7 @@ body.abierto .pantalla {
 }
 .seccion-mixta {
   width: 100%;
-  padding: 60px 20px;
+  padding: 60px 0px;
   text-align: center;
   background-color: #ffffff;
 }
@@ -208,6 +208,7 @@ body.abierto .pantalla {
 
   background-image: url("img/division.png"); /* 👈 tu imagen */
   background-size: cover;
+  
   background-position: center;
   background-repeat: no-repeat;
 
@@ -225,6 +226,7 @@ body.abierto .pantalla {
   position: absolute;
   inset: 0;
   background: rgba(255, 255, 255, 0.2);
+  width: 100%;
 }
 
 /* TEXTO DENTRO DE LA IMAGEN */
