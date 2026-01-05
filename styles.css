@@ -182,6 +182,73 @@ body.abierto .pantalla {
   letter-spacing: 1px;
   color: #555;
 }
+.seccion-mixta {
+  width: 100%;
+  padding: 60px 20px;
+  text-align: center;
+  background-color: #ffffff;
+}
+
+/* TEXTO FUERA DE LA IMAGEN */
+.texto-externo {
+  max-width: 600px;
+  margin: 0 auto 30px auto;
+  font-size: 20px;
+  line-height: 1.6;
+  font-style: italic;
+  color: #444;
+}
+
+/* =========================
+   CONTENEDOR DE IMAGEN
+========================= */
+.imagen-con-texto {
+  width: 100%;
+  min-height: 45vh;
+
+  background-image: url("img/division.png"); /* 👈 tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 50px 20px;
+  position: relative;
+}
+
+/* VELO SUAVE PARA LEGIBILIDAD */
+.imagen-con-texto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* TEXTO DENTRO DE LA IMAGEN */
+.texto-interno {
+  max-width: 650px;
+  font-size: 22px;
+  line-height: 1.7;
+  font-style: italic;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+}
+
+/* =========================
+   TÍTULOS DECORATIVOS
+========================= */
+.titulo-seccion {
+  font-family: "Playfair Display", serif;
+  font-size: 36px;
+  margin: 60px 0 20px;
+  color: #6b6b6b;
+}
+
 
 /* TABLET / DESKTOP */
 @media (min-width: 768px) {
