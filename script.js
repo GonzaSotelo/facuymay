@@ -14,7 +14,7 @@ pantalla.addEventListener('click', () => {
 
 
 // FECHA DEL CASAMIENTO (YYYY, MM -1, DD, HH, MM)
-const fechaEvento = new Date(2026, 10, 15, 18, 0).getTime();
+const fechaEvento = new Date(2026, 3, 8, 12, 15).getTime();
 
 const diasEl = document.getElementById('dias');
 const horasEl = document.getElementById('horas');

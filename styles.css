@@ -120,40 +120,55 @@ body.abierto .pantalla {
 /* HERO */
 .hero {
   min-height: 100vh;
-  padding: 40px 20px;
+  padding: 20px 44px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
+  min-height: 100vh;
+
+    background-image: url("img/fondo1.png");
+  background-size: cover;       /* cubre toda la sección */
+  background-position: center;  /* centra la imagen */
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
 }
+
 
 /* LOGO */
 .logo {
-  width: 220px;
-  max-width: 80%;
-  margin-bottom: 24px;
+  width: 30vh;
+  max-width: 100%;
+ margin-top: -55vh;
 }
 
 /* TITULO */
 .titulo {
   font-size: 32px;
   letter-spacing: 2px;
-  margin-bottom: 30px;
+  margin-top: -1vh;
   font-weight: 400;
 }
 
 /* CONTADOR */
 .contador {
   display: flex;
-  gap: 14px;
+  gap: 25px;
+  margin-top: -10vh;
 }
 
 .tiempo {
-  background: #f6f3ef;
+  background: #a6b0b2;
   padding: 12px 10px;
   border-radius: 10px;
   min-width: 65px;
+  box-shadow: 12px 12px 13px 0px rgba(0,0,0,0.1);
 }
 
 .tiempo span {
@@ -186,4 +201,16 @@ body.abierto .pantalla {
   .tiempo span {
     font-size: 26px;
   }
+}
+
+.separador {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.separador img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
