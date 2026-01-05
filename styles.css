@@ -72,6 +72,7 @@ body.abierto .texto {
 /* ARRIBA */
 .arriba {
   top: 0;
+  z-index: 1;
 }
 
 /* ABAJO */
@@ -127,7 +128,8 @@ body.abierto .pantalla {
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-
+  margin-top: -40px;
+  margin-bottom: -40px;
     background-image: url("img/fondo1.png");
   background-size: cover;       /* cubre toda la sección */
   background-position: center;  /* centra la imagen */
@@ -140,19 +142,17 @@ body.abierto .pantalla {
 
 }
 
-
-/* LOGO */
-.logo {
-  width: 30vh;
-  max-width: 100%;
- margin-top: -55vh;
+.texto-inicio{
+  display: flex;
+  flex-direction: column;
+ margin-top: -30vh;
 }
 
 /* TITULO */
 .titulo {
   font-size: 32px;
   letter-spacing: 2px;
-  margin-top: -1vh;
+  
   font-weight: 400;
 }
 
@@ -160,11 +160,11 @@ body.abierto .pantalla {
 .contador {
   display: flex;
   gap: 25px;
-  margin-top: -10vh;
+
 }
 
 .tiempo {
-  background: #a6b0b2;
+  background: #5b040471;
   padding: 12px 10px;
   border-radius: 10px;
   min-width: 65px;
