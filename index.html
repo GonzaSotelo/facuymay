@@ -1,148 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>May & Facu</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<audio id="musica" loop>
-  <source src="assets/musica.mp3" type="audio/mpeg">
-</audio>
 
-<button id="musicBtn" onclick="toggleMusic()">🎵</button>
-
-<!-- VIDEO INTRO -->
-<section id="intro">
-  <video autoplay muted playsinline id="introVideo">
-    <source src="assets/video.mp4" type="video/mp4">
-  </video>
-</section>
-
-<!-- CONTENIDO -->
-<main id="contenido" class="hidden">
-
-  <!-- HERO -->
-<section class="hero">
-  <img src="assets/logo.png" alt="May y Facu" class="logo">
-  <div class="falta">FALTA</div>
-  <div id="countdown"></div>
-</section>
-
-
-  <!-- CEREMONIA -->
-  <section class="card">
-    <h2>Ceremonia</h2>
-    <p><strong>Día:</strong> Domingo 8 de Marzo- 12:15hs</p>
-    <p><strong>Lugar:</strong> Parroquia Nuestra Señora Del Carmen</p>
-    <p><strong>Dirección:</strong> Álvarez Jonte 77 - Ramos Mejia</p>
-      <iframe
-    class="mapa"
-    src="https://www.google.com/maps?q=Álvarez+Jonte+77+Ramos+Mejía&output=embed"
-    loading="lazy"
-  ></iframe>
-
-  <a href="https://www.google.com/maps?q=Álvarez+Jonte+77+Ramos+Mejía" target="_blank">
-    <button>Cómo llegar</button>
-  </a>
-  </section>
-
-  <!-- FIESTA -->
-  <section class="card">
-    <h2>Fiesta</h2>
-    <p><strong>Día:</strong> Domingo 8 de Marzo- 14:00hs</p>
-    <p><strong>Lugar:</strong> Jano´s San Justo</p>
-    <p><strong>Dirección:</strong> Av. Monseñor Bufano 1546</p>
-      <iframe
-    class="mapa"
-    src="https://www.google.com/maps?q=Av.+Monseñor+Bufano+1546&output=embed"
-    loading="lazy"
-  ></iframe>
-
-  <a href="https://www.google.com/maps?q=Av.+Monseñor+Bufano+1546" target="_blank">
-    <button>Cómo llegar</button>
-  </a>
-  </section>
-
-  <section class="card dresscode">
-  <div class="dresscode-icon">🤵‍♂️👗</div>
-  <h2>Dress Code</h2>
-  <p class="dresscode-text">Elegante · Gala</p>
-</section>
-
-  
-  <!-- GALERÍA -->
-  <section class="galeria">
-    <h2>Retratos de Nuestro Amor</h2>
-    <div class="carousel">
-      <img src="assets/foto1.jpg">
-      <img src="assets/foto2.jpg">
-      <img src="assets/foto3.jpg">
-        <img src="assets/foto4.jpg">
-  <img src="assets/foto5.jpg">
+  <!-- PANTALLA DEL SOBRE -->
+  <div class="pantalla" id="pantalla">
+    <div class="sobre">
+      <img src="img/sobreariba.png" class="sobre-parte arriba" alt="Sobre arriba">
+      <img src="img/sobreabajo.png" class="sobre-parte abajo" alt="Sobre abajo">
     </div>
-  </section>
 
-  <!-- REGALOS -->
-  <section class="card">
-    <h2>Regalos</h2>
-    <p>Si deseás regalarnos algo más que tu presencia...</p>
-    <button onclick="abrirModal()">Ver más</button>
-  </section>
-
-  <!-- INSTAGRAM -->
-  <section class="card">
-    <h2>Compartimos este día junto a vos</h2>
-    <p>Usá el hashtag</p>
-    <h3>#mayyfacu</h3>
-    <a href="https://instagram.com" target="_blank">
-      <button>Ver en Instagram</button>
-    </a>
-  </section>
-<section class="card">
-  <h2>Confirmar Asistencia</h2>
-
-  <label>Cantidad de personas</label>
-  <input
-    type="number"
-    id="cantidad"
-    min="1"
-    max="10"
-    placeholder="Ej: 2"
-  />
-
-  <button type="button" onclick="generarPersonas()">Continuar</button>
-
-  <div id="personas"></div>
-
-<button
-  type="button"
-  id="btnConfirmar"
-  onclick="enviarConfirmacion()"
->
-  Confirmar asistencia
-</button>
-
-
-  <small>Ingresá el número y completá los datos de cada persona</small>
-</section>
-
-</main>
-
-<!-- MODAL -->
-<div id="modal" class="modal">
-  <div class="modal-content">
-    <span onclick="cerrarModal()" class="close">×</span>
-    <h3>Datos para regalo</h3>
-    <p><strong>Alias:</strong> may.facu.boda</p>
-    <p><strong>CBU:</strong> 0000003100001234567890</p>
+    <p class="texto">TOCÁ PARA ABRIR</p>
   </div>
-</div>
 
+  <!-- CONTENIDO DE LA INVITACIÓN -->
+  <section class="contenido">
+    <h1>María & Juan</h1>
+    <p>¡Nos casamos!</p>
+  </section>
 
-
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
