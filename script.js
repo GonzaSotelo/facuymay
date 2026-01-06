@@ -33,3 +33,54 @@ function actualizarContador() {
 
 actualizarContador();
 setInterval(actualizarContador, 1000);
+
+
+const carrusel = document.getElementById("carrusel");
+const slides = document.querySelectorAll(".slide");
+const paginacion = document.getElementById("paginacion");
+
+let index = 0;
+const total = slides.length;
+
+/* CREAR PAGINACIÓN */
+slides.forEach((_, i) => {
+  const punto = document.createElement("div");
+  punto.classList.add("punto");
+  if (i === 0) punto.classList.add("activo");
+
+  punto.addEventListener("click", () => {
+    irASlide(i);
+    reiniciarAuto();
+  });
+
+  paginacion.appendChild(punto);
+});
+
+const puntos = document.querySelectorAll(".punto");
+
+/* IR A SLIDE */
+function irASlide(i) {
+  index = i;
+  carrusel.style.transform = `translateX(-${index * 100}%)`;
+  actualizarPaginacion();
+}
+
+/* ACTUALIZAR PUNTOS */
+function actualizarPaginacion() {
+  puntos.forEach(p => p.classList.remove("activo"));
+  puntos[index].classList.add("activo");
+}
+
+/* AUTO SLIDE */
+function siguienteSlide() {
+  index = (index + 1) % total;
+  irASlide(index);
+}
+
+let intervalo = setInterval(siguienteSlide, 4000);
+
+/* REINICIAR AUTO */
+function reiniciarAuto() {
+  clearInterval(intervalo);
+  intervalo = setInterval(siguienteSlide, 4000);
+}
