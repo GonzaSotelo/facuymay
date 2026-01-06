@@ -247,6 +247,7 @@ body.abierto .pantalla {
     color: #333;
     width: 100%;
     height: 35vh;
+    text-align: center;
 }
 
 /* SECCIÓN CON FONDO DE IMAGEN */
