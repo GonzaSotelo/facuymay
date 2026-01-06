@@ -71,13 +71,13 @@ body.abierto .texto {
 
 /* ARRIBA */
 .arriba {
-  top: 0;
+  top: -10vh;
   z-index: 1;
 }
 
 /* ABAJO */
 .abajo {
-  top: 50%;
+  top: -10vh;
 }
 
 
@@ -241,6 +241,66 @@ body.abierto .pantalla {
   padding: 10px;
 }
 
+/* SECCIÓN CON COLOR SÓLIDO */
+.color-solido {
+    background-color: #ffffff;
+    color: #333;
+    width: 100%;
+    height: 35vh;
+}
+
+/* SECCIÓN CON FONDO DE IMAGEN */
+.fondo-imagen {
+  background-image: url("img/division.png"); /* tu imagen */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #fff;
+  position: relative;
+  min-height: 45vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Velo para legibilidad */
+.fondo-imagen::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+    background: rgb(255 255 255 / 30%); /* semi-transparente negro */
+  z-index: 0;
+}
+
+.fondo-imagen .titulo-seccion,
+.fondo-imagen .detalle-seccion {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ==========================
+   SEPARADOR DESGARRADO
+========================== */
+.separador {
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.separador img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.separador img.volteada {
+  transform: rotate(180deg);
+}
+
+
 /* =========================
    TÍTULOS DECORATIVOS
 ========================= */
@@ -270,16 +330,4 @@ body.abierto .pantalla {
   .tiempo span {
     font-size: 26px;
   }
-}
-
-.separador {
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.separador img {
-  width: 100%;
-  height: auto;
-  display: block;
 }
