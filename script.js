@@ -8,6 +8,20 @@ pantalla.addEventListener('click', () => {
   document.body.style.overflow = 'auto';
 });
 
+const inicio = document.getElementById('inicio');
+
+pantalla.addEventListener('click', () => {
+  if (document.body.classList.contains('abierto')) return;
+
+  document.body.classList.add('abierto');
+
+  // SCROLL AL PUNTO DE INICIO REAL
+  requestAnimationFrame(() => {
+    inicio.scrollIntoView({ behavior: 'instant' });
+  });
+});
+
+
 // CONTADOR
 const fechaEvento = new Date(2026, 3, 8, 12, 15).getTime();
 const diasEl = document.getElementById('dias');

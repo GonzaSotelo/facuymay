@@ -5,12 +5,28 @@
   box-sizing: border-box;
 }
 
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
 /* BODY */
 body {
   font-family: serif;
   background: #f6f3ef;
   overflow: hidden;
 }
+#inicio {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+html, body {
+  scroll-behavior: auto;
+  overflow-x: hidden;
+}
+
 
 /* PANTALLA INICIAL */
 .pantalla {
@@ -23,6 +39,8 @@ body {
   cursor: pointer;
   z-index: 10;
   transition: opacity 0.8s ease;
+   top: 0;
+  left: 0;
 }
 body.abierto .pantalla {
   opacity: 0;
