@@ -471,6 +471,8 @@ body.abierto .pantalla {
   border: none;
   border-radius: 15px;
   margin: 15px 0;
+  max-width: 90vw;
+  max-height: 30vh;
 }
 
 /* LABEL */
