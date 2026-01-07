@@ -407,78 +407,63 @@ body.abierto .pantalla {
   font-size: 16px;
 }
 
-/* MODAL */
+/* FONDO MODAL */
 .modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
-  display: none;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
   align-items: center;
   justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
   z-index: 9999;
 }
 
+/* MODAL ACTIVO */
 .modal.activo {
-  display: flex;
+  opacity: 1;
+  pointer-events: auto;
 }
 
+/* CAJA DEL MODAL */
 .modal-contenido {
   background: #fff;
   width: 90%;
   max-width: 420px;
-  padding: 25px;
-  border-radius: 20px;
-  position: relative;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow-y: auto;
+
+  padding: 20px;
+  border-radius: 15px;
+
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+
+  position: relative;
+  z-index: 10000;
 }
 
-/* CERRAR */
-.cerrar {
+/* ANIMACIÓN */
+.modal.activo .modal-contenido {
+  transform: scale(1);
+}
+
+/* BOTÓN CERRAR */
+#cerrarModal {
   position: absolute;
-  top: 15px;
-  right: 15px;
+  top: 12px;
+  right: 12px;
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 22px;
+  cursor: pointer;
 }
 
-/* OPCIONES */
-.opciones {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin: 20px 0;
-}
 
-/* FORM */
-.modal label {
-  display: block;
-  margin-top: 15px;
-  font-weight: bold;
-}
-
-.modal input, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-}
-
-/* BOTÓN ENVIAR */
-.btn-enviar {
-  margin-top: 25px;
-  width: 100%;
-  padding: 14px;
-  border-radius: 30px;
-  border: none;
-  background: #6d0d0d;
-  color: #fff;
-  font-size: 16px;
-}
-
-.oculto {
-  display: none;
-}
 
 
 /* TABLET / DESKTOP */
