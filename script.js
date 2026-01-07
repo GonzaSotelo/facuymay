@@ -185,3 +185,42 @@ function abrirModal() {
 function cerrarModal() {
   modal.classList.remove("show");
 }
+
+/* =========================
+   CARRUSEL AUTOMÁTICO
+========================= */
+const carrusel = document.getElementById("carrusel");
+const slides = document.querySelectorAll(".slide");
+const paginacion = document.getElementById("paginacion");
+
+let index = 0;
+
+// Crear puntos
+slides.forEach((_, i) => {
+  const punto = document.createElement("div");
+  punto.classList.add("punto");
+  if (i === 0) punto.classList.add("activo");
+
+  punto.addEventListener("click", () => {
+    index = i;
+    actualizarCarrusel();
+  });
+
+  paginacion.appendChild(punto);
+});
+
+const puntos = document.querySelectorAll(".punto");
+
+function actualizarCarrusel() {
+  carrusel.style.transform = `translateX(-${index * 100}%)`;
+
+  puntos.forEach(p => p.classList.remove("activo"));
+  puntos[index].classList.add("activo");
+}
+
+// Auto slide
+setInterval(() => {
+  index++;
+  if (index >= slides.length) index = 0;
+  actualizarCarrusel();
+}, 4000);
