@@ -225,3 +225,37 @@ setInterval(() => {
   if (index >= slides.length) index = 0;
   actualizarCarrusel();
 }, 4000);
+
+
+/* =========================
+   MÚSICA DE FONDO
+========================= */
+const musica = document.getElementById("musica");
+const btnMusica = document.getElementById("btnMusica");
+const iconoMusica = btnMusica.querySelector("i");
+
+let musicaActiva = false;
+
+// Se ejecuta al abrir el sobre
+pantalla.addEventListener("click", () => {
+  if (!musicaActiva) {
+    musica.play().then(() => {
+      musicaActiva = true;
+      btnMusica.classList.add("visible");
+      iconoMusica.className = "fa-solid fa-volume-high";
+    }).catch(() => {
+      console.log("Reproducción bloqueada");
+    });
+  }
+});
+
+// Botón play / pause
+btnMusica.addEventListener("click", () => {
+  if (musica.paused) {
+    musica.play();
+    iconoMusica.className = "fa-solid fa-volume-high";
+  } else {
+    musica.pause();
+    iconoMusica.className = "fa-solid fa-volume-xmark";
+  }
+});
