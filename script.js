@@ -98,3 +98,66 @@ function reiniciarAuto() {
   clearInterval(intervalo);
   intervalo = setInterval(siguienteSlide, 4000);
 }
+
+const modal = document.getElementById("modalRSVP");
+const abrir = document.getElementById("abrirModal");
+const cerrar = document.getElementById("cerrarModal");
+const formulario = document.getElementById("formulario");
+
+abrir.onclick = () => modal.classList.add("activo");
+cerrar.onclick = () => modal.classList.remove("activo");
+
+/* SI / NO */
+document.querySelectorAll("input[name='asiste']").forEach(radio => {
+  radio.addEventListener("change", () => {
+    formulario.classList.toggle("oculto", radio.value === "No");
+  });
+});
+
+/* ADULTOS */
+document.getElementById("adultos").addEventListener("input", e => {
+  const cont = document.getElementById("adultosDatos");
+  cont.innerHTML = "";
+  for (let i = 1; i <= e.target.value; i++) {
+    cont.innerHTML += `
+      <label>Adulto ${i}</label>
+      <input placeholder="Nombre y apellido">
+      <select>
+        <option>Sin restricción</option>
+        <option>Vegetariano</option>
+        <option>Celíaco</option>
+        <option>Vegano</option>
+      </select>
+    `;
+  }
+});
+
+/* NIÑOS */
+document.getElementById("ninos").addEventListener("input", e => {
+  const cont = document.getElementById("ninosDatos");
+  cont.innerHTML = "";
+  for (let i = 1; i <= e.target.value; i++) {
+    cont.innerHTML += `
+      <label>Niño ${i}</label>
+      <input placeholder="Nombre">
+      <input type="number" placeholder="Edad">
+      <select>
+        <option>Sin restricción</option>
+        <option>Celíaco</option>
+      </select>
+    `;
+  }
+});
+
+/* ENVIAR WHATSAPP */
+document.getElementById("enviar").onclick = () => {
+  const mensaje = `
+Confirmación de asistencia:
+Adultos: ${adultos.value}
+Niños: ${ninos.value}
+Canción: ${cancion.value}
+  `;
+
+  const telefono = "5491124081298"; // TU NÚMERO
+  window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, "_blank");
+};

@@ -103,6 +103,43 @@ Y nos gustaría que vos estés presente celebrando nuestro amor
   </div>
 </section>
 
+<button class="btn-rsvp" id="abrirModal">Confirmar asistencia</button>
+
+<!-- MODAL -->
+<div class="modal" id="modalRSVP">
+  <div class="modal-contenido">
+    <button class="cerrar" id="cerrarModal">✕</button>
+
+    <h2 class="titulo-seccion">¿Asistirás?</h2>
+
+    <div class="opciones">
+      <label><input type="radio" name="asiste" value="Sí"> Sí</label>
+      <label><input type="radio" name="asiste" value="No"> No</label>
+    </div>
+
+    <div id="formulario" class="oculto">
+
+      <!-- ADULTOS -->
+      <label>Cantidad de adultos</label>
+      <input type="number" id="adultos" min="0" value="0">
+
+      <div id="adultosDatos"></div>
+
+      <!-- NIÑOS -->
+      <label>Cantidad de niños</label>
+      <input type="number" id="ninos" min="0" value="0">
+
+      <div id="ninosDatos"></div>
+
+      <!-- CANCIÓN -->
+      <label>¿Qué canción no puede faltar?</label>
+      <input type="text" id="cancion">
+
+      <button class="btn-enviar" id="enviar">Enviar por WhatsApp</button>
+    </div>
+
+  </div>
+</div>
 
 
 </section>
