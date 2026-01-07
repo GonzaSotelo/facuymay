@@ -170,8 +170,9 @@ body.abierto .pantalla {
 .titulo {
   font-size: 32px;
   letter-spacing: 2px;
-  
+   font-family: "WindSong", cursive;
   font-weight: 400;
+  
 }
 
 /* CONTADOR */
@@ -182,7 +183,7 @@ body.abierto .pantalla {
 }
 
 .tiempo {
-  background: #6d0d0d71;
+  background: #6b6b6b;
   padding: 12px 10px;
   border-radius: 10px;
   min-width: 65px;
@@ -360,7 +361,7 @@ body.abierto .pantalla {
 }
 
 .punto.activo {
-  background: #6d0d0d;
+  background: #6b6b6b;
   transform: scale(1.3);
 }
 
@@ -389,7 +390,8 @@ body.abierto .pantalla {
    TÍTULOS DECORATIVOS
 ========================= */
 .titulo-seccion {
-  font-family: "Playfair Display", serif;
+  font-family: "WindSong", cursive;
+  font-weight: 400;
   font-size: 36px;
   margin: 60px 0 20px;
   color: #6b6b6b;
@@ -415,14 +417,17 @@ body.abierto .pantalla {
 /* TÍTULO */
 .card h2 {
   font-size: 22px;
-  color: #6d0d0d;
+  color: #6b6b6b;
   margin-bottom: 20px;
-  font-weight: 500;
+   font-family: "WindSong", cursive;
+  font-weight: 400;
+
 }
 
 .card h2 i {
   margin-right: 8px;
-  color: #6d0d0d;
+  
+  
 }
 
 /* LABEL */
@@ -448,7 +453,7 @@ body.abierto .pantalla {
 }
 
 .card input:focus {
-  border-color: #6d0d0d;
+  border-color: #6b6b6b;
   box-shadow: 0 0 0 2px rgba(109, 13, 13, 0.15);
 }
 
@@ -459,7 +464,7 @@ body.abierto .pantalla {
   padding: 14px;
   border-radius: 30px;
   border: none;
-  background: #6d0d0d;
+  background: #6b6b6b;
   color: #fff;
   font-size: 16px;
   font-weight: 500;
@@ -489,7 +494,7 @@ body.abierto .pantalla {
 /* SUBTÍTULO PERSONA */
 .persona h4 {
   font-size: 15px;
-  color: #6d0d0d;
+  color: #6b6b6b;
   margin-bottom: 10px;
 }
 
@@ -507,7 +512,7 @@ body.abierto .pantalla {
 /* BOTÓN CONFIRMAR */
 #btnConfirmar {
   margin-top: 25px;
-  background: #4b0a0a;
+  background: #6b6b6b;
   display: none;
 }
 
