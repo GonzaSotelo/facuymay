@@ -28,7 +28,7 @@ pantalla.addEventListener("click", () => {
    CONTADOR REGRESIVO
 ================================ */
 
-const fechaEvento = new Date(2026, 3, 8, 12, 15).getTime();
+const fechaEvento = new Date(2026, 2, 8, 12, 15).getTime();
 
 const diasEl = document.getElementById("dias");
 const horasEl = document.getElementById("horas");
