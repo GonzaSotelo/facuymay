@@ -172,3 +172,16 @@ const observer = new IntersectionObserver(entries => {
 });
 
 secciones.forEach(sec => observer.observe(sec));
+
+/* =========================
+   MODAL REGALOS
+========================= */
+const modal = document.getElementById("modal");
+
+function abrirModal() {
+  modal.classList.add("show");
+}
+
+function cerrarModal() {
+  modal.classList.remove("show");
+}

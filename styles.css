@@ -145,19 +145,13 @@ body.abierto .pantalla {
   align-items: center;
   justify-content: center;
   text-align: center;
-  min-height: 100vh;
   margin-top: 0px;
   margin-bottom: -40px;
     background-image: url("img/fondo1.png");
   background-size: cover;       /* cubre toda la sección */
   background-position: center;  /* centra la imagen */
   background-repeat: no-repeat;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
+  height: 110vh;
 }
 
 .texto-inicio{
@@ -206,6 +200,7 @@ body.abierto .pantalla {
   padding: 60px 0px;
   text-align: center;
   background-color: #ffffff;
+  height: 100vh;
 }
 
 /* TEXTO FUERA DE LA IMAGEN */
@@ -269,7 +264,7 @@ body.abierto .pantalla {
     background-color: #ffffff;
     color: #333;
     width: 100%;
-    height: 35vh;
+    height: 100vh;
     text-align: center;
 }
 
@@ -287,6 +282,7 @@ body.abierto .pantalla {
   justify-content: center;
   padding: 60px 20px;
   text-align: center;
+  height: 100vh;
 }
 
 /* Velo para legibilidad */
@@ -433,6 +429,48 @@ body.abierto .pantalla {
 #confirmar h2 i {
   margin-right: 8px;
   animation: latido 2.5s ease-in-out infinite;
+}
+/* =========================
+   MODAL
+========================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal.show {
+  display: flex;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  border-radius: 20px;
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.close {
+  font-size: 30px;
+  cursor: pointer;
+  display: block;
+  margin-bottom: 15px;
+}
+/* =========================
+   MAPAS
+========================= */
+.mapa {
+  width: 100%;
+  height: 180px;
+  border: none;
+  border-radius: 15px;
+  margin: 15px 0;
 }
 
 /* LABEL */

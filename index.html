@@ -77,9 +77,18 @@ Y nos gustaría que vos estés presente celebrando nuestro amor
   <i class="fa-solid fa-church icono"></i> Ceremonia
 </h2>
   <p class="detalle-seccion">
-    La ceremonia se llevará a cabo el 8 de abril de 2026 a las 12:15 hs
-    en <strong>Salón de Eventos "El Jardín"</strong>, ubicado en Calle Falsa 123.
+    La ceremonia se llevará a cabo el 8 de Marzo de 2026 a las 12:15 hs
+    en <strong>Parroquia Nuestra Señora Del Carmen</strong>, ubicado en Álvarez Jonte 77 - Ramos Mejia.
   </p>
+       <iframe
+    class="mapa"
+    src="https://www.google.com/maps?q=Álvarez+Jonte+77+Ramos+Mejía&output=embed"
+    loading="lazy"
+  ></iframe>
+
+  <a href="https://www.google.com/maps?q=Álvarez+Jonte+77+Ramos+Mejía" target="_blank">
+    <button>Cómo llegar</button>
+  </a>
 </section>
 
 <!-- SECCIÓN FIESTA (fondo con imagen) -->
@@ -90,8 +99,17 @@ Y nos gustaría que vos estés presente celebrando nuestro amor
 
   <p class="detalle-seccion">
     Después de la ceremonia, los esperamos para celebrar juntos
-    en la misma locación con música, comida y muchas sorpresas.
+    en  <strong>Jano´s San Justo</strong> , ubicado en Av. Monseñor Bufano 1546
   </p>
+        <iframe
+    class="mapa"
+    src="https://www.google.com/maps?q=Av.+Monseñor+Bufano+1546&output=embed"
+    loading="lazy"
+  ></iframe>
+
+  <a href="https://www.google.com/maps?q=Av.+Monseñor+Bufano+1546" target="_blank">
+    <button>Cómo llegar</button>
+  </a>
 </section>
 
 <section class="seccion color-solido" id="regalo">
@@ -101,9 +119,17 @@ Y nos gustaría que vos estés presente celebrando nuestro amor
 
   <p class="detalle-seccion">
    Nuestro mejor regalo es que estes con nosotros en nuestro día, pero si queres hacernos un obsequio, ¡aquí está nuestro número de cuenta! </p>
-   <h4>Alias: Facuymay.mp</h4>
+    <button onclick="abrirModal()">Ver más</button>
 </section>
-
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span onclick="cerrarModal()" class="close">×</span>
+    <h3>Datos para regalo</h3>
+    <p><strong>Alias:</strong> may.facu.boda</p>
+    <p><strong>CBU:</strong> 0000003100001234567890</p>
+  </div>
+</div>
 <section class="seccion carrusel-seccion">
   <h2 class="titulo-seccion">
   <i class="fa-solid fa-camera-retro icono"></i> Momentos
