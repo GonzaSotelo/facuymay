@@ -474,6 +474,14 @@ body.abierto .pantalla {
   max-width: 90vw;
   max-height: 30vh;
 }
+.datosregalos {
+  background-color: #78abab5c;
+      width: 60vw;
+    height: 15vh;
+    margin: 10vh auto;
+    padding: 4%;
+    border-radius: 25px;
+}
 
 /* LABEL */
 #confirmar label {
@@ -498,7 +506,7 @@ body.abierto .pantalla {
 
 #confirmar input:focus,
 #confirmar select:focus {
-  border-color: #6d0d0d;
+  border-color: #78abab5c;
 }
 
 /* BOTÓN CONTINUAR */
@@ -508,7 +516,7 @@ body.abierto .pantalla {
   padding: 14px;
   border-radius: 30px;
   border: none;
-  background: #6d0d0d;
+  background: #78abab5c;
   color: #fff;
   font-size: 16px;
   cursor: pointer;
