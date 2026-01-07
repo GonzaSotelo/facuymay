@@ -152,6 +152,7 @@ function generarPersonas() {
           <option>Vegetariano</option>
           <option>Celíaco</option>
           <option>Vegano</option>
+           <option>Menu infantil</option>
         </select>
       </div>
     `;
