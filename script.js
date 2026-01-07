@@ -1,20 +1,21 @@
-/*********************************
- * BLOQUEO INICIAL
- *********************************/
+/* ===============================
+   BLOQUEO INICIAL (SOBRE)
+================================ */
+
+// Bloqueamos scroll al inicio
 document.body.style.overflow = "hidden";
 
-/*********************************
- * APERTURA DEL SOBRE
- *********************************/
 const pantalla = document.getElementById("pantalla");
 
 pantalla.addEventListener("click", () => {
   if (document.body.classList.contains("abierto")) return;
 
   document.body.classList.add("abierto");
+
+  // Habilitamos scroll
   document.body.style.overflow = "auto";
 
-  // SIEMPRE MOSTRAR ARRIBA
+  // Asegura inicio arriba
   window.scrollTo({
     top: 0,
     left: 0,
@@ -22,9 +23,11 @@ pantalla.addEventListener("click", () => {
   });
 });
 
-/*********************************
- * CONTADOR
- *********************************/
+
+/* ===============================
+   CONTADOR REGRESIVO
+================================ */
+
 const fechaEvento = new Date(2026, 3, 8, 12, 15).getTime();
 
 const diasEl = document.getElementById("dias");
@@ -33,8 +36,9 @@ const minutosEl = document.getElementById("minutos");
 const segundosEl = document.getElementById("segundos");
 
 function actualizarContador() {
-  const ahora = Date.now();
+  const ahora = new Date().getTime();
   const diferencia = fechaEvento - ahora;
+
   if (diferencia <= 0) return;
 
   const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
@@ -51,147 +55,106 @@ function actualizarContador() {
 actualizarContador();
 setInterval(actualizarContador, 1000);
 
-/*********************************
- * CARRUSEL
- *********************************/
-const carrusel = document.getElementById("carrusel");
-const slides = document.querySelectorAll(".slide");
-const paginacion = document.getElementById("paginacion");
 
-let index = 0;
-const total = slides.length;
 
-// PAGINACIÓN
-slides.forEach((_, i) => {
-  const punto = document.createElement("div");
-  punto.className = "punto" + (i === 0 ? " activo" : "");
+/* =========================
+   CONFIRMACIÓN ASISTENCIA
+========================= */
+function generarPersonas() {
+  const cantidad = parseInt(document.getElementById("cantidad").value);
+  const contenedor = document.getElementById("personas");
+  const btnConfirmar = document.getElementById("btnConfirmar");
 
-  punto.addEventListener("click", () => {
-    irASlide(i);
-    reiniciarAuto();
-  });
+  contenedor.innerHTML = "";
+  btnConfirmar.style.display = "none"; // 🔒 se oculta siempre primero
 
-  paginacion.appendChild(punto);
-});
+  if (!cantidad || cantidad < 1) {
+    alert("Ingresá una cantidad válida");
+    return;
+  }
 
-const puntos = document.querySelectorAll(".punto");
+  for (let i = 1; i <= cantidad; i++) {
+    contenedor.innerHTML += `
+      <div class="persona">
+        <h3>Persona ${i}</h3>
 
-function irASlide(i) {
-  index = i;
-  carrusel.style.transform = `translateX(-${index * 100}%)`;
-  actualizarPaginacion();
-}
+        <label>Nombre y apellido</label>
+        <input type="text" placeholder="Ej: Juan Pérez">
 
-function actualizarPaginacion() {
-  puntos.forEach(p => p.classList.remove("activo"));
-  puntos[index].classList.add("activo");
-}
-
-function siguienteSlide() {
-  index = (index + 1) % total;
-  irASlide(index);
-}
-
-let intervalo = setInterval(siguienteSlide, 4000);
-
-function reiniciarAuto() {
-  clearInterval(intervalo);
-  intervalo = setInterval(siguienteSlide, 4000);
-}
-
-/*********************************
- * MODAL RSVP
- *********************************/
-const modal = document.getElementById("modalRSVP");
-const abrir = document.getElementById("abrirModal");
-const cerrar = document.getElementById("cerrarModal");
-
-let scrollActual = 0;
-
-abrir.addEventListener("click", () => {
-  scrollActual = window.scrollY;
-
-  document.body.style.position = "fixed";
-  document.body.style.top = `-${scrollActual}px`;
-  document.body.style.width = "100%";
-
-  modal.classList.add("activo");
-});
-
-cerrar.addEventListener("click", () => {
-  modal.classList.remove("activo");
-
-  document.body.style.position = "";
-  document.body.style.top = "";
-  document.body.style.width = "";
-
-  window.scrollTo(0, scrollActual);
-});
-
-/*********************************
- * FORMULARIO RSVP
- *********************************/
-const formulario = document.getElementById("formulario");
-
-document.querySelectorAll("input[name='asiste']").forEach(radio => {
-  radio.addEventListener("change", () => {
-    formulario.classList.toggle("oculto", radio.value === "No");
-  });
-});
-
-// ADULTOS
-document.getElementById("adultos").addEventListener("input", e => {
-  const cont = document.getElementById("adultosDatos");
-  cont.innerHTML = "";
-
-  for (let i = 1; i <= e.target.value; i++) {
-    cont.innerHTML += `
-      <label>Adulto ${i}</label>
-      <input placeholder="Nombre y apellido">
-      <select>
-        <option>Sin restricción</option>
-        <option>Vegetariano</option>
-        <option>Celíaco</option>
-        <option>Vegano</option>
-      </select>
+        <label>Menú</label>
+        <select>
+          <option value="Tradicional">Tradicional</option>
+          <option value="Celíaco">Celíaco</option>
+          <option value="Intolerante a la lactosa">Intolerante a la lactosa</option>
+          <option value="Vegano">Vegano</option>
+          <option value="Menú infantil">Menú infantil</option>
+        </select>
+      </div>
     `;
   }
-});
 
-// NIÑOS
-document.getElementById("ninos").addEventListener("input", e => {
-  const cont = document.getElementById("ninosDatos");
-  cont.innerHTML = "";
+  // ✅ si llegó hasta acá, mostramos el botón
+  btnConfirmar.style.display = "block";
+}
 
-  for (let i = 1; i <= e.target.value; i++) {
-    cont.innerHTML += `
-      <label>Niño ${i}</label>
-      <input placeholder="Nombre">
-      <input type="number" placeholder="Edad">
-      <select>
-        <option>Sin restricción</option>
-        <option>Celíaco</option>
-      </select>
+
+function enviarConfirmacion() {
+  const cantidad = document.getElementById("cantidad").value;
+  const personas = document.querySelectorAll(".persona");
+
+  if (!cantidad) {
+    alert("Por favor seleccioná la cantidad de personas");
+    return;
+  }
+
+  let mensaje = `💍 Confirmación de asistencia 💍\n\n`;
+  mensaje += `Cantidad de personas: ${cantidad}\n\n`;
+
+  for (let i = 0; i < personas.length; i++) {
+    const nombre = personas[i].querySelector("input").value;
+    const menu = personas[i].querySelector("select").value;
+
+    if (!nombre) {
+      alert("Por favor completá todos los nombres");
+      return;
+    }
+
+    mensaje += `Persona ${i + 1}:\n`;
+    mensaje += `👤 Nombre: ${nombre}\n`;
+    mensaje += `🍽 Menú: ${menu}\n\n`;
+  }
+
+  const telefono = "5491168916883"; // tu número
+  const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url, "_blank");
+}
+function generarPersonas() {
+  const cantidad = parseInt(document.getElementById("cantidad").value);
+  const contenedor = document.getElementById("personas");
+  const botonConfirmar = document.getElementById("btnConfirmar");
+
+  contenedor.innerHTML = "";
+
+  if (!cantidad || cantidad < 1) {
+    botonConfirmar.style.display = "none";
+    return;
+  }
+
+  for (let i = 1; i <= cantidad; i++) {
+    contenedor.innerHTML += `
+      <div class="persona">
+        <h4>Invitado ${i}</h4>
+
+        <label>Nombre y apellido</label>
+        <input type="text" required>
+
+        <label>Restricción alimentaria</label>
+        <input type="text" placeholder="Ej: Celíaco, vegetariano">
+      </div>
     `;
   }
-});
 
-// ENVIAR WHATSAPP
-document.getElementById("enviar").addEventListener("click", () => {
-  const adultos = document.getElementById("adultos").value;
-  const ninos = document.getElementById("ninos").value;
-  const cancion = document.getElementById("cancion").value;
-
-  const mensaje = `
-Confirmación de asistencia:
-Adultos: ${adultos}
-Niños: ${ninos}
-Canción: ${cancion}
-  `;
-
-  const telefono = "5491124081298";
-  window.open(
-    `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`,
-    "_blank"
-  );
-});
+  /* 👉 MOSTRAR BOTÓN CONFIRMAR */
+  botonConfirmar.style.display = "block";
+}
