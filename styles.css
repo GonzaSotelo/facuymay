@@ -146,7 +146,7 @@ body.abierto .pantalla {
   justify-content: center;
   text-align: center;
   min-height: 100vh;
-  margin-top: -40px;
+  margin-top: 0px;
   margin-bottom: -40px;
     background-image: url("img/fondo1.png");
   background-size: cover;       /* cubre toda la sección */
@@ -168,7 +168,7 @@ body.abierto .pantalla {
 
 /* TITULO */
 .titulo {
-  font-size: 32px;
+  font-size: 45px;
   letter-spacing: 2px;
    font-family: "WindSong", cursive;
   font-weight: 400;
@@ -183,11 +183,11 @@ body.abierto .pantalla {
 }
 
 .tiempo {
-  background: #6b6b6b;
+  background: #68616100;
   padding: 12px 10px;
   border-radius: 10px;
   min-width: 65px;
-  box-shadow: 12px 12px 13px 0px rgba(0,0,0,0.1);
+  box-shadow: 12px 12px 13px 0px rgb(174 183 183);
 }
 
 .tiempo span {
@@ -216,6 +216,8 @@ body.abierto .pantalla {
   line-height: 1.6;
   font-style: italic;
   color: #444;
+   font-family: "Poiret One", sans-serif;
+  font-weight: 200;
 }
 
 /* =========================
@@ -258,6 +260,8 @@ body.abierto .pantalla {
   position: relative;
   z-index: 1;
   padding: 10px;
+   font-family: "Poiret One", sans-serif;
+  font-weight: 200;
 }
 
 /* SECCIÓN CON COLOR SÓLIDO */
@@ -394,10 +398,15 @@ body.abierto .pantalla {
   font-weight: 400;
   font-size: 36px;
   margin: 60px 0 20px;
-  color: #6b6b6b;
+  color: #000000;
   text-align: center;
 }
 
+.detalle-seccion{
+   font-family: "Poiret One", sans-serif;
+  font-weight: 200;
+    font-size: 17px;
+}
 
 
 /* =========================
@@ -438,6 +447,8 @@ body.abierto .pantalla {
   font-size: 15px;
   color: #444;
   font-weight: 500;
+   font-family: "Poiret One", sans-serif;
+  font-weight: 400;
 }
 
 /* INPUT */
@@ -489,6 +500,8 @@ body.abierto .pantalla {
   border-radius: 18px;
   padding: 18px;
   margin-bottom: 18px;
+     font-family: "Poiret One", sans-serif;
+  font-weight: 400;
 }
 
 /* SUBTÍTULO PERSONA */
@@ -496,6 +509,7 @@ body.abierto .pantalla {
   font-size: 15px;
   color: #6b6b6b;
   margin-bottom: 10px;
+ 
 }
 
 /* INPUTS PERSONAS */
