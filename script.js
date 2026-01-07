@@ -130,31 +130,45 @@ function enviarConfirmacion() {
   window.open(url, "_blank");
 }
 function generarPersonas() {
-  const cantidad = parseInt(document.getElementById("cantidad").value);
-  const contenedor = document.getElementById("personas");
-  const botonConfirmar = document.getElementById("btnConfirmar");
+  const cantidad = document.getElementById("cantidad").value;
+  const personas = document.getElementById("personas");
+  const btnConfirmar = document.getElementById("btnConfirmar");
 
-  contenedor.innerHTML = "";
+  personas.innerHTML = "";
 
-  if (!cantidad || cantidad < 1) {
-    botonConfirmar.style.display = "none";
+  if (cantidad < 1) {
+    btnConfirmar.style.display = "none";
     return;
   }
 
   for (let i = 1; i <= cantidad; i++) {
-    contenedor.innerHTML += `
+    personas.innerHTML += `
       <div class="persona">
-        <h4>Invitado ${i}</h4>
+        <label>Persona ${i}</label>
+        <input type="text" placeholder="Nombre y apellido" required>
 
-        <label>Nombre y apellido</label>
-        <input type="text" required>
-
-        <label>Restricción alimentaria</label>
-        <input type="text" placeholder="Ej: Celíaco, vegetariano">
+        <select>
+          <option>Sin restricción</option>
+          <option>Vegetariano</option>
+          <option>Celíaco</option>
+          <option>Vegano</option>
+        </select>
       </div>
     `;
   }
 
-  /* 👉 MOSTRAR BOTÓN CONFIRMAR */
-  botonConfirmar.style.display = "block";
+  btnConfirmar.style.display = "block";
 }
+
+
+const secciones = document.querySelectorAll(".seccion");
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+    }
+  });
+});
+
+secciones.forEach(sec => observer.observe(sec));

@@ -400,6 +400,8 @@ body.abierto .pantalla {
   margin: 60px 0 20px;
   color: #000000;
   text-align: center;
+  display: flex;
+    flex-direction: column;
 }
 
 .detalle-seccion{
@@ -410,133 +412,108 @@ body.abierto .pantalla {
 
 
 /* =========================
-   CARD CONFIRMAR ASISTENCIA
+   CONFIRMAR ASISTENCIA
 ========================= */
-.card {
-  width: 90%;
-  max-width: 420px;
-  margin: 60px auto;
-  padding: 30px 25px;
-  background: #ffffff;
-  border-radius: 25px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+#confirmar {
+  width: 100%;
+  padding: 60px 20px;
   text-align: center;
 }
 
 /* TÍTULO */
-.card h2 {
-  font-size: 22px;
-  color: #6b6b6b;
-  margin-bottom: 20px;
-   font-family: "WindSong", cursive;
+#confirmar h2 {
+  font-size: 26px;
   font-weight: 400;
-
+  color: #000000;
+  margin-bottom: 25px;
+  display: flex;
+    flex-direction: column;
 }
 
-.card h2 i {
+#confirmar h2 i {
   margin-right: 8px;
-  
-  
+  animation: latido 2.5s ease-in-out infinite;
 }
 
 /* LABEL */
-.card label {
+#confirmar label {
   display: block;
-  margin-top: 20px;
-  margin-bottom: 8px;
-  font-size: 15px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: bold;
+  margin: 18px 0 6px;
   color: #444;
-  font-weight: 500;
-   font-family: "Poiret One", sans-serif;
-  font-weight: 400;
 }
 
-/* INPUT */
-.card input[type="number"],
-.card input[type="text"] {
+/* INPUTS / SELECT */
+#confirmar input,
+#confirmar select {
   width: 100%;
-  padding: 12px 14px;
+  padding: 12px;
   border-radius: 14px;
   border: 1px solid #ddd;
   font-size: 15px;
   outline: none;
-  transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card input:focus {
-  border-color: #6b6b6b;
-  box-shadow: 0 0 0 2px rgba(109, 13, 13, 0.15);
+#confirmar input:focus,
+#confirmar select:focus {
+  border-color: #6d0d0d;
 }
 
 /* BOTÓN CONTINUAR */
-.card button {
+#confirmar button {
+  margin-top: 20px;
   width: 100%;
-  margin-top: 22px;
   padding: 14px;
   border-radius: 30px;
   border: none;
-  background: #6b6b6b;
+  background: #6d0d0d;
   color: #fff;
   font-size: 16px;
-  font-weight: 500;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.card button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 8px 18px rgba(109, 13, 13, 0.3);
+#confirmar button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
 }
 
 /* CONTENEDOR PERSONAS */
 #personas {
   margin-top: 25px;
-  text-align: left;
 }
 
-/* PERSONA INDIVIDUAL */
+/* BLOQUE PERSONA */
 .persona {
-  background: #f9f7f5;
-  border-radius: 18px;
-  padding: 18px;
   margin-bottom: 18px;
-     font-family: "Poiret One", sans-serif;
-  font-weight: 400;
-}
-
-/* SUBTÍTULO PERSONA */
-.persona h4 {
-  font-size: 15px;
-  color: #6b6b6b;
-  margin-bottom: 10px;
- 
-}
-
-/* INPUTS PERSONAS */
-.persona input,
-.persona select {
-  width: 100%;
-  padding: 11px 12px;
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  font-size: 14px;
-  margin-bottom: 10px;
+  padding: 15px;
+  border-radius: 18px;
+  background: #f6f3ef;
 }
 
 /* BOTÓN CONFIRMAR */
 #btnConfirmar {
-  margin-top: 25px;
-  background: #6b6b6b;
-  display: none;
+  margin-top: 30px;
+  background: #3a7d44;
 }
 
 /* TEXTO AYUDA */
-.card small {
+#confirmar small {
   display: block;
   margin-top: 18px;
-  font-size: 13px;
+  font-size: 12px;
   color: #777;
-  line-height: 1.4;
+}
+
+/* =========================
+   ANIMACIÓN ICONO
+========================= */
+@keyframes latido {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
 }
 
 

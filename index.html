@@ -10,6 +10,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -71,7 +73,9 @@ Y nos gustaría que vos estés presente celebrando nuestro amor
 
 <!-- SECCIÓN CEREMONIA (fondo sólido) -->
 <section class="seccion color-solido" id="ceremonia">
-  <h2 class="titulo-seccion">Ceremonia</h2>
+  <h2 class="titulo-seccion">
+  <i class="fa-solid fa-church icono"></i> Ceremonia
+</h2>
   <p class="detalle-seccion">
     La ceremonia se llevará a cabo el 8 de abril de 2026 a las 12:15 hs
     en <strong>Salón de Eventos "El Jardín"</strong>, ubicado en Calle Falsa 123.
@@ -80,7 +84,10 @@ Y nos gustaría que vos estés presente celebrando nuestro amor
 
 <!-- SECCIÓN FIESTA (fondo con imagen) -->
 <section class="seccion fondo-imagen" id="fiesta">
-  <h2 class="titulo-seccion">Fiesta</h2>
+  <h2 class="titulo-seccion">
+  <i class="fa-solid fa-martini-glass-citrus icono"></i> Fiesta
+</h2>
+
   <p class="detalle-seccion">
     Después de la ceremonia, los esperamos para celebrar juntos
     en la misma locación con música, comida y muchas sorpresas.
@@ -88,14 +95,20 @@ Y nos gustaría que vos estés presente celebrando nuestro amor
 </section>
 
 <section class="seccion color-solido" id="regalo">
-  <h2 class="titulo-seccion">Regalo</h2>
+  <h2 class="titulo-seccion">
+  <i class="fa-solid fa-gift icono"></i> Regalo
+</h2>
+
   <p class="detalle-seccion">
    Nuestro mejor regalo es que estes con nosotros en nuestro día, pero si queres hacernos un obsequio, ¡aquí está nuestro número de cuenta! </p>
    <h4>Alias: Facuymay.mp</h4>
 </section>
 
 <section class="seccion carrusel-seccion">
-  <h2 class="titulo-seccion">Momentos</h2>
+  <h2 class="titulo-seccion">
+  <i class="fa-solid fa-camera-retro icono"></i> Momentos
+</h2>
+
 
   <div class="carrusel-wrapper">
     <div class="carrusel" id="carrusel">
@@ -112,9 +125,11 @@ Y nos gustaría que vos estés presente celebrando nuestro amor
 
 
 
-<section class="card">
-  <h2><i class="fa-solid fa-check-circle"></i> Confirmar Asistencia</h2>
-
+<section class="seccion color-solido" id="confirmar">
+  <h2>
+    <i class="fa-solid fa-check-circle icono"></i>
+    Confirmar Asistencia
+  </h2>
 
   <label>Cantidad de personas</label>
   <input
@@ -125,20 +140,24 @@ Y nos gustaría que vos estés presente celebrando nuestro amor
     placeholder="Ej: 2"
   />
 
-  <button type="button" onclick="generarPersonas()">Continuar</button>
+  <button type="button" onclick="generarPersonas()">
+    Continuar
+  </button>
 
   <div id="personas"></div>
 
-<button
-  type="button"
-  id="btnConfirmar"
-  onclick="enviarConfirmacion()"
->
-  Confirmar asistencia
-</button>
+  <button
+    type="button"
+    id="btnConfirmar"
+    onclick="enviarConfirmacion()"
+    style="display:none"
+  >
+    Confirmar asistencia
+  </button>
 
-
-  <small>Ingresá el número y completá los datos de cada persona</small>
+  <small>
+    Ingresá el número y completá los datos de cada persona
+  </small>
 </section>
 
 
