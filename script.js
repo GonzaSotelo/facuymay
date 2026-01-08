@@ -97,6 +97,56 @@ function generarPersonas() {
   btnConfirmar.style.display = "block";
 }
 
+/* =========================
+   TYPEWRITER H1 INICIO
+========================= */
+const tituloInicio = document.querySelector(".texto-inicio .titulo");
+
+function escribirTituloInicio() {
+  const texto = tituloInicio.textContent;
+  tituloInicio.textContent = "";
+  tituloInicio.classList.add("typewriter");
+
+  let i = 0;
+  const intervalo = setInterval(() => {
+    tituloInicio.textContent += texto.charAt(i);
+    i++;
+
+    if (i >= texto.length) {
+      clearInterval(intervalo);
+      tituloInicio.style.borderRight = "none";
+    }
+  }, 150); // velocidad ideal móvil
+}
+
+/* Ejecutar cuando se abre el sobre */
+pantalla.addEventListener("click", () => {
+  escribirTituloInicio();
+}, { once: true });
+
+/* =========================
+   SCROLL ANIMATIONS
+========================= */
+const elementosScroll = document.querySelectorAll(
+  ".fade-texto, .fade-slide, .fade-mapa"
+);
+
+const scrollObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  },
+  {
+    threshold: 0.2
+  }
+);
+
+elementosScroll.forEach((el) => scrollObserver.observe(el));
+
 
 function enviarConfirmacion() {
   const cantidad = document.getElementById("cantidad").value;
