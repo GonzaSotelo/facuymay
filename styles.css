@@ -351,7 +351,7 @@ body.abierto .pantalla {
 ========================= */
 .imagen-con-texto {
   width: 100%;
-  min-height: 45vh;
+  min-height: 60vh;
 
   background-image: url("img/division.png"); /* 👈 tu imagen */
   background-size: cover;
